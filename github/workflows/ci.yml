@@ -1,0 +1,27 @@
+# GitHub Actions CI configuration for Backup CLI
+name: CI Backup CLI # Continuous Integration
+
+# Trigger the workflow on push or pull request events to the main branch
+on: # Trigger on push and pull request to main branch
+  push: # Push events to main branch
+    branches: [ "main" ] # Target main branch
+  pull_request:
+
+jobs: # Define jobs for the workflow
+  test: # Test job
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+
+    steps: # Steps to execute in the job
+    - name: Checkout repo # Checkout the repository
+      uses: actions/checkout@v3 # Use the checkout action
+
+    - name: Set up Python # Set up Python environment
+      uses: actions/setup-python@v4 # Use the setup-python action
+      with: # Specify Python version
+        python-version: '3.11' # Use Python 3.11
+
+    - name: Install deps # Install dependencies
+      run: pip install pytest # Install pytest for testing
+
+    - name: Run tests # Run test suite
+      run: pytest # Execute pytest to run tests
