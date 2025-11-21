@@ -1,0 +1,15 @@
+# Environnements virtuels
+.venv/
+venv/
+
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Pytest
+.pytest_cache/
+
+# Divers
+.env
+*.log

@@ -1,7 +1,13 @@
 # tests/test_backup.py - Tests for backup.py
 import os
-import shutil
-from backup import backup_folder
+import sys
+from pathlib import Path
+
+# Ajoute la racine du projet au PYTHONPATH
+ROOT_DIR = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT_DIR))
+
+from backup import backup_folder  # noqa: E402
 
 # Test to verify backup creation
 def test_backup_creation(tmp_path):
